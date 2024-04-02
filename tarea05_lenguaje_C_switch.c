@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-	int opcion,saldo, retiro, abono,resta, suma;
+	int opcion,saldo, retiro, abono,resta, suma, contador;
+	contador  = 1;
 	saldo = 3000;
 	
 	do{
@@ -22,8 +23,17 @@ int main(int argc, char *argv[]) {
 			scanf("%d",&retiro);
 			
 			resta = saldo -retiro;
+			if (resta < saldo){
+				printf("Saldo insuficiente\n");
+				resta = saldo - retiro;
+			}
+			
 			printf("Retiro exitoso su saldo actual es $%d \n",resta);
-			printf("****************\n\n");
+			printf("****************\n");
+			
+				
+			
+			
 			
 	
 			break;
@@ -42,10 +52,13 @@ int main(int argc, char *argv[]) {
 			break;
 		case 3:
 			printf("Nos Vemos Pronto..\n");
+			printf("movimientos %d \n",contador);
 			break;
 		default:
 			printf("La opcion no es valida\n");
+			
 		}
+		contador ++;
 	} while(opcion !=3);
 	
 	return 0;
